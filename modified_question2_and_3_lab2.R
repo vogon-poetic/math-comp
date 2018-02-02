@@ -1,6 +1,7 @@
 #Name: John McCrary
 #Purpose: Convert temperature based on unit
 rm(list=ls())
+
 #Input
 temp<-as.numeric(readline("Enter temperature: "))
 unit<-readline("Enter unit of temperature (F or C): ")
