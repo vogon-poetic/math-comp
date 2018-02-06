@@ -76,6 +76,7 @@ for(i in 1:n) {
     }
 }
 
+#output
 plot(x, y, t="l", axes=F, xlab="x values", ylab="y values")
 axis(side=1, pos=0)
 axis(side=2, pos=0)
