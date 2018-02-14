@@ -62,7 +62,7 @@ cat(sprintf("cos(%.2f) = %.5f", x, cos(x)))
 #input
 x <- as.numeric(readline("Enter a real number (x): "))
 n <- as.numeric(readline("Enter a positive int (n): "))
-sum <- 0
+sum <- 1
 
 #computation
 for (i in 1:n) {
@@ -70,4 +70,4 @@ for (i in 1:n) {
 }
 
 #output
-cat(sprintf("h(%.2f) = %.5f\n", x, sum))
+cat(sprintf("h(%.2f, %d) = %.5f\n", x, n, sum))
