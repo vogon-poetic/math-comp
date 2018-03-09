@@ -9,7 +9,7 @@ cosine <- function (x, n) {
 }
 
 fact.recursive <- function (n) {
-    if (n == 1 || n == 0) {
+    if (n == 1 | n == 0) {
         return(1)
     } else {
         return(n * fact.recursive(n-1))
@@ -17,7 +17,7 @@ fact.recursive <- function (n) {
 }
 
 MyFactorial <- function(n) {
-    if (n == 0 || n == 1) {
+    if (n == 0 | n == 1) {
         return(1)
     } else {
         f <- 1 
