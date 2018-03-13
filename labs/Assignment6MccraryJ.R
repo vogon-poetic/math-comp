@@ -12,6 +12,7 @@ Assignment6Q1 <- function (x) {
     return(product^(1/n))
 }
 
+#Purpose: returns the max element of a vector x
 Assignment6Q2 <- function(x) {
     max.x <- x[1]
     for (i in 2:length(x)) {
@@ -23,6 +24,7 @@ Assignment6Q2 <- function(x) {
     return(max.x)
 }
 
+#purpose: print squares and cubes for the first n Natural numbers.
 Assignment6Q3 <- function(n) {
     cat(sprintf("number square  cube    \n"))
     for (i in 1:n) {
