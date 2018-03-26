@@ -16,7 +16,7 @@ Fibo <- function(n) {
     }
 }
 
-MyFibo <- function(n) {
+MyFibo1 <- function(n) {
     f1 <- 0
     f2 <- 1
     f3 <- 0
