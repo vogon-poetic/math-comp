@@ -37,3 +37,11 @@ myGCD <- function(m,n) {
     }
 }
 
+n.row <- n.col <- 30
+mat <- matrix(0, nrow = n.row, ncol = n.col)
+
+for (col in 1:n.col) {
+    for (row in 1:n.row) {
+        mat[col,row] <- myGCD(col, row)
+    }
+}
