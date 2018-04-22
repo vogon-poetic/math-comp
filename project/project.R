@@ -1,16 +1,28 @@
 library(deSolve)
 
-model <- function (t, y, parms) {
-    with(as.list(c(y, parms)), {
-        dy1 <- -2 * y[2] * y[3]
-        dy2 <- 1.25 * y[1] * y[3]
-        dy3 <- -0.5 * y[1] * y[2]
-        list(c(dy1, dy2, dy3))
+parameters <- c(a = -1, b = -10, c = 28)
+state <- c(X = 1, Y = 1, Z = 1)
+
+Lorenz <- function (t, state, parameters) {
+    with(as.list(c(state,parameters)), {
+        #rates of change
+        dX <- a*X + Y*Z
+        dY <- b * (Y-Z)
+        dZ <- -X * Y + c * Y - Z
+        
+        list(c(dX,dY,dZ))
     })
 }
 
-y <- c(N = 0.1)
-parms <- c(r = 0.1, K = 10)
-times <- 0:100
-out <- ode(y, times, model, parms)
-plot(out)
+times <- seq(0, 100, by = 0.01)
+out <- ode(y = state, times=times, func=Lorenz, parms=parameters)
+par(oma = c(0,0,3,0))
+plot(out, xlab="time", ylab = "-")
+plot(out[,"X"],out[,"Z"],pch=".")
+mtext(outer = T, side = 3, "Lorenz model", cex = 1.5)
+
+for (i in sample(4, replace = T)) {
+    parameters <- c(a = -1/i, b = -10, c = 28)
+    out <- ode(y = state, times=times, func=Lorenz, parms=parameters)
+    plot(out[,"X"],out[,"Z"],pch=".")
+}
