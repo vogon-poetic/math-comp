@@ -1,4 +1,6 @@
 library(shiny)
+library(deSolve)
+library(plotly)
 
 ui <- fluidPage(
     titlePanel("Numerical Solutions to a System of ODEs"),
@@ -22,7 +24,6 @@ server <- function(input, output) {
     })
     
     output$graph <- renderPlot({
-        library(deSolve)
         
         model <- function(t, state, parameters) {
             with(as.list(c(state)), {
@@ -34,11 +35,10 @@ server <- function(input, output) {
         }
         
         yini <- c(x=1,y=1,z=1)
-        yini2 <- yini + c(1e-6, 0, 0)
         times <- seq(0,30,0.01)
-        out <- ode(y = yini, times = times, func = model, parms = 0)
-        out2 <- ode(y = yini2, times = times, func = model, parms = 0)
-        plot(out)
+        solution <- ode(y = yini, times = times, func = model, parms = 0)
+        scatterplot3d(solution[,2:4], type = "l", box = F, col.axis = "blue",
+                      highlight.3d = T)
     })
 }
 
