@@ -37,8 +37,6 @@ server <- function(input, output) {
         yini <- c(x=1,y=1,z=1)
         times <- seq(0,30,0.01)
         solution <- ode(y = yini, times = times, func = model, parms = 0)
-        scatterplot3d(solution[,2:4], type = "l", box = F, col.axis = "blue",
-                      highlight.3d = T)
     })
 }
 
