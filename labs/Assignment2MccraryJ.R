@@ -32,35 +32,24 @@ cat(sprintf(" %i\n %i\n %i\n %i\n",
 
 
 #Name: John McCrary
-#Purpose: Convert fahrenheit to celsius
+#Purpose: Convert temperature based on unit
 
 #Input
-fahrenheit<-as.numeric(readline("Enter temperature in Fahrenheit: "))
+temp<-as.numeric(readline("Enter temperature: "))
+unit<-readline("Enter unit of temperature (F or C): ")
 
-#Computation
-celsius<-(fahrenheit - 32)*(5/9)
-
-#Output
-cat(sprintf("%.2f degrees Fahrenheit = %.2f degrees Celsius", 
-            fahrenheit, celsius))
-
-
-
-
-
-
-#Name: John McCrary
-#Purpose: Convert celsius to fahrenheit
-
-#input
-celsius<-as.numeric(readline("Enter temperature in celsius: "))
-
-#computation
-fahrenheit<-(celsius * (9/5)) + 32
-
-#output
-cat(sprintf("%0.2f degrees celsius = %0.2f degrees fahrenheit",
-            celsius, fahrenheit))
+#Computation and Output
+if (unit == "F") {
+    celsius<-(temp - 32)*(5/9)
+    cat(sprintf("%.2f degrees Fahrenheit = %.2f degrees Celsius", 
+                temp, celsius))
+} else if (unit == "C") {
+    fahrenheit<-(temp * (9/5)) + 32
+    cat(sprintf("%0.2f degrees celsius = %0.2f degrees fahrenheit",
+                celsius, fahrenheit))
+} else {
+    cat(sprintf("Error: invalid unit, must enter F or C.\n"))
+}
 
 
 
